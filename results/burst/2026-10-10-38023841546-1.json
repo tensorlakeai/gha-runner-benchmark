@@ -1,0 +1,1857 @@
+{
+  "schemaVersion": 1,
+  "suite": "burst",
+  "workload": {
+    "name": "Burst queue",
+    "description": "A burst of 15 identical jobs per runner, all queued at the same instant, each holding its runner for 60 seconds. Since 4 Oct 2026 each RunsOn job requests its own label (runs-on=<run id>-<runner id>-<iteration>), so a RunsOn runner launched for one job can no longer be taken by a sibling; before, a runner missing from a burst left one job waiting for RunsOn to retry, minutes later. Queue time shows how fast a provider absorbs a spike: how quickly it scales, and the concurrency limits of the plan this account is on. Runs on its own, never alongside another suite, in shards of one runner per provider, one shard after another (a provider's x64 and arm64 runners never share a shard, since some providers cap concurrency per account).",
+    "holdSeconds": 60,
+    "shards": "one runner per provider per shard (a provider's x64 and arm64 runners in different shards)"
+  },
+  "run": {
+    "id": 38023841546,
+    "attempt": 1,
+    "date": "2026-10-10",
+    "startedAt": "2026-10-10T04:22:36Z",
+    "url": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546",
+    "sha": "df180197b12279da04c7126c45a4d3555d4e45b9",
+    "event": "workflow_dispatch",
+    "repository": "tensorlakeai/gha-runner-benchmark"
+  },
+  "selection": {
+    "event": "workflow_dispatch",
+    "source": "inputs",
+    "origin": {
+      "event": "workflow_dispatch",
+      "source": "inputs",
+      "runId": 38023733040
+    },
+    "runners": "tensorlake-x64,tensorlake-x64-8x32,tensorlake-x64-2x8",
+    "arch": "all",
+    "iterations": 15,
+    "defaultRunners": 93,
+    "subset": true,
+    "missingDefaultRunners": [
+      "github-x64",
+      "github-x64-8x32",
+      "github-x64-2x8",
+      "github-arm64",
+      "github-arm64-2x8",
+      "runson-m8azn-x64",
+      "runson-m8a-x64",
+      "runson-m8id-x64",
+      "runson-r8a-tmpfs-x64",
+      "runson-r8a-2xlarge-tmpfs-x64",
+      "runson-m9g-arm64",
+      "runson-m9gd-arm64",
+      "runson-c8g-arm64-4x8",
+      "runson-c8g-arm64-8x16",
+      "runson-m9g-arm64-8x32",
+      "blacksmith-x64",
+      "blacksmith-x64-8x32",
+      "blacksmith-x64-2x8",
+      "blacksmith-arm64",
+      "blacksmith-arm64-8x32",
+      "blacksmith-arm64-2x6",
+      "namespace-x64",
+      "namespace-x64-4x8",
+      "namespace-x64-8x16",
+      "namespace-x64-8x32",
+      "namespace-x64-2x8",
+      "namespace-arm64",
+      "namespace-arm64-4x8",
+      "namespace-arm64-apple",
+      "namespace-arm64-8x16",
+      "namespace-arm64-8x32",
+      "namespace-arm64-2x8",
+      "warpbuild-x64",
+      "warpbuild-x64-8x32",
+      "warpbuild-x64-2x",
+      "warpbuild-arm64",
+      "warpbuild-arm64-xfast",
+      "warpbuild-arm64-xfast-12x",
+      "warpbuild-arm64-8x32",
+      "warpbuild-arm64-2x",
+      "ubicloud-x64",
+      "ubicloud-premium-x64",
+      "ubicloud-x64-8x32",
+      "ubicloud-premium-x64-8x32",
+      "ubicloud-x64-2",
+      "ubicloud-premium-x64-2",
+      "ubicloud-arm64",
+      "ubicloud-arm64-8x32",
+      "ubicloud-arm64-2",
+      "avrea-x64",
+      "avrea-x64-8x32",
+      "avrea-x64-2",
+      "avrea-arm64",
+      "avrea-arm64-8x32",
+      "avrea-arm64-2",
+      "starsling-x64",
+      "starsling-x64-8x32",
+      "codebuild-x64",
+      "codebuild-x64-8x16",
+      "codebuild-x64-2x3",
+      "runson-m8azn-gp3tuned-x64",
+      "runson-c8a-x64-4x8",
+      "runson-c8a-x64-8x16",
+      "runson-i7i-large",
+      "runson-i7i-xlarge",
+      "runson-i7i-2xlarge",
+      "runson-m8id-large",
+      "runson-m8id-2xlarge",
+      "runson-m9gd-large",
+      "runson-m9gd-2xlarge",
+      "runson-m9g-xlarge-tmpfs",
+      "runson-r9g-xlarge-tmpfs",
+      "runson-m9g-2xlarge-tmpfs",
+      "runson-c8g-large",
+      "runson-m9g-large",
+      "runson-m8azn-large",
+      "runson-m8azn-3xlarge",
+      "runson-m8a-2xlarge",
+      "runson-m8a-2xlarge-gp3tuned",
+      "runson-m8a-2xlarge-tmpfs",
+      "runson-c8a-large",
+      "runson-m8a-large",
+      "runson-r8a-large",
+      "runson-t8i-medium",
+      "runson-m8i-large",
+      "runson-m8i-flex-large",
+      "runson-m8i-xlarge",
+      "runson-m8i-flex-xlarge",
+      "runson-m8i-2xlarge",
+      "runson-m8i-flex-2xlarge"
+    ],
+    "shard": 2,
+    "shards": 3
+  },
+  "runners": [
+    {
+      "id": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 8,
+      "ramGiB": 32,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-8",
+        "tensorlake-memory-32gb",
+        "tensorlake-disk-80gb"
+      ],
+      "variant": "8 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size."
+    }
+  ],
+  "results": [
+    {
+      "key": "tensorlake-x64-8x32--1",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 1,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:58Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-25c7d279-7661-45f8-a991-85a4fb573ded",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397076",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:03+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.57,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-25c7d279-7661-45f8-a991-85a4fb573ded",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--2",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 2,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:58Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-65a6d68e-146d-4a21-9ff6-66b64ce0ac44",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397029",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:03+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.58,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-65a6d68e-146d-4a21-9ff6-66b64ce0ac44",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--3",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 3,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 89,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:24:16Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-e984d371-1ed1-41bc-8f35-a2b8e32dff97",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397153",
+      "host": {
+        "collectedAt": "2026-10-10T04:24:20+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.56,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-e984d371-1ed1-41bc-8f35-a2b8e32dff97",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--4",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 4,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 10,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:57Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-d14ae34d-9b29-4ead-93b4-d59eb7e7377d",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397004",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:02+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.58,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-d14ae34d-9b29-4ead-93b4-d59eb7e7377d",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--5",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 5,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 69,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-a4641ab1-d6aa-4129-a52f-a22f77302053",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397074",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.58,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-a4641ab1-d6aa-4129-a52f-a22f77302053",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--6",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 6,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:58Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-3545af89-e2ae-45d0-bdaa-05599e7aee46",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397019",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:03+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.57,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-3545af89-e2ae-45d0-bdaa-05599e7aee46",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--7",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 7,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 68,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-73306125-0833-4ca7-8110-58f0b6d5bf0a",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397161",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:11+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.58,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-73306125-0833-4ca7-8110-58f0b6d5bf0a",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--8",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 8,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 90,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:24:17Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-90c2ebde-12ff-4c49-bd54-9d12fd46e5f9",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397160",
+      "host": {
+        "collectedAt": "2026-10-10T04:24:21+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.58,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-90c2ebde-12ff-4c49-bd54-9d12fd46e5f9",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--9",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 9,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 89,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:24:16Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-166953eb-7709-4e34-9be6-f39a64076521",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397187",
+      "host": {
+        "collectedAt": "2026-10-10T04:24:21+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.57,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-166953eb-7709-4e34-9be6-f39a64076521",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--10",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 10,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 68,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-4a641e47-f841-4d59-b10a-7a4e4993fcda",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397177",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:11+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.55,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-4a641e47-f841-4d59-b10a-7a4e4993fcda",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--11",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 11,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 69,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-2fd971e2-0ec2-4b05-a899-637bc763baa6",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397170",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:11+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.59,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-2fd971e2-0ec2-4b05-a899-637bc763baa6",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--12",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 12,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:58Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-0318bdf2-19c2-455f-9476-f74532bea8e5",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397064",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:03+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.55,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-0318bdf2-19c2-455f-9476-f74532bea8e5",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--13",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 13,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 70,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:22:58Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-15f4b6a1-0de5-4d45-b212-9365998504f8",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397106",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:03+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.59,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-15f4b6a1-0de5-4d45-b212-9365998504f8",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--14",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 14,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 69,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-b3e24be9-275b-4852-842c-64c72b022ab2",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397162",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.56,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-b3e24be9-275b-4852-842c-64c72b022ab2",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--15",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 15,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 21,
+      "jobSeconds": 69,
+      "workloadSeconds": 60,
+      "createdAt": "2026-10-10T04:22:47Z",
+      "startedAt": "2026-10-10T04:23:08Z",
+      "phases": [
+        {
+          "name": "hold",
+          "seconds": 60,
+          "status": "success"
+        }
+      ],
+      "runnerName": "tensorlake-25f14458-f95b-4afa-b208-2f5d6fbe06b5",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38023841546/job/114130397176",
+      "host": {
+        "collectedAt": "2026-10-10T04:23:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.57,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-25f14458-f95b-4afa-b208-2f5d6fbe06b5",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      }
+    }
+  ]
+}
