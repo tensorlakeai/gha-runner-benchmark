@@ -1,0 +1,743 @@
+{
+  "schemaVersion": 1,
+  "suite": "hardware",
+  "workload": {
+    "name": "Runner hardware",
+    "description": "CPU (sysbench, 7-Zip, PassMark), memory bandwidth, disk (fio in the job workspace), network downloads, a docker pull, and pgbench against a PostgreSQL service container."
+  },
+  "run": {
+    "id": 38021174299,
+    "attempt": 1,
+    "date": "2026-10-10",
+    "startedAt": "2026-10-10T03:36:45Z",
+    "url": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38021174299",
+    "sha": "cac9cab95be33fa208f2bc57a728e713059305b7",
+    "event": "workflow_dispatch",
+    "repository": "tensorlakeai/gha-runner-benchmark"
+  },
+  "selection": {
+    "event": "workflow_dispatch",
+    "source": "inputs",
+    "origin": {
+      "event": "workflow_dispatch",
+      "source": "inputs",
+      "runId": 38021174299
+    },
+    "runners": "tensorlake-x64,tensorlake-x64-8x32,tensorlake-x64-2x8",
+    "arch": "all",
+    "iterations": 1,
+    "defaultRunners": 93,
+    "subset": true,
+    "missingDefaultRunners": [
+      "github-x64",
+      "github-x64-8x32",
+      "github-x64-2x8",
+      "github-arm64",
+      "github-arm64-2x8",
+      "runson-m8azn-x64",
+      "runson-m8a-x64",
+      "runson-m8id-x64",
+      "runson-r8a-tmpfs-x64",
+      "runson-r8a-2xlarge-tmpfs-x64",
+      "runson-m9g-arm64",
+      "runson-m9gd-arm64",
+      "runson-c8g-arm64-4x8",
+      "runson-c8g-arm64-8x16",
+      "runson-m9g-arm64-8x32",
+      "blacksmith-x64",
+      "blacksmith-x64-8x32",
+      "blacksmith-x64-2x8",
+      "blacksmith-arm64",
+      "blacksmith-arm64-8x32",
+      "blacksmith-arm64-2x6",
+      "namespace-x64",
+      "namespace-x64-4x8",
+      "namespace-x64-8x16",
+      "namespace-x64-8x32",
+      "namespace-x64-2x8",
+      "namespace-arm64",
+      "namespace-arm64-4x8",
+      "namespace-arm64-apple",
+      "namespace-arm64-8x16",
+      "namespace-arm64-8x32",
+      "namespace-arm64-2x8",
+      "warpbuild-x64",
+      "warpbuild-x64-8x32",
+      "warpbuild-x64-2x",
+      "warpbuild-arm64",
+      "warpbuild-arm64-xfast",
+      "warpbuild-arm64-xfast-12x",
+      "warpbuild-arm64-8x32",
+      "warpbuild-arm64-2x",
+      "ubicloud-x64",
+      "ubicloud-premium-x64",
+      "ubicloud-x64-8x32",
+      "ubicloud-premium-x64-8x32",
+      "ubicloud-x64-2",
+      "ubicloud-premium-x64-2",
+      "ubicloud-arm64",
+      "ubicloud-arm64-8x32",
+      "ubicloud-arm64-2",
+      "avrea-x64",
+      "avrea-x64-8x32",
+      "avrea-x64-2",
+      "avrea-arm64",
+      "avrea-arm64-8x32",
+      "avrea-arm64-2",
+      "starsling-x64",
+      "starsling-x64-8x32",
+      "codebuild-x64",
+      "codebuild-x64-8x16",
+      "codebuild-x64-2x3",
+      "runson-m8azn-gp3tuned-x64",
+      "runson-c8a-x64-4x8",
+      "runson-c8a-x64-8x16",
+      "runson-i7i-large",
+      "runson-i7i-xlarge",
+      "runson-i7i-2xlarge",
+      "runson-m8id-large",
+      "runson-m8id-2xlarge",
+      "runson-m9gd-large",
+      "runson-m9gd-2xlarge",
+      "runson-m9g-xlarge-tmpfs",
+      "runson-r9g-xlarge-tmpfs",
+      "runson-m9g-2xlarge-tmpfs",
+      "runson-c8g-large",
+      "runson-m9g-large",
+      "runson-m8azn-large",
+      "runson-m8azn-3xlarge",
+      "runson-m8a-2xlarge",
+      "runson-m8a-2xlarge-gp3tuned",
+      "runson-m8a-2xlarge-tmpfs",
+      "runson-c8a-large",
+      "runson-m8a-large",
+      "runson-r8a-large",
+      "runson-t8i-medium",
+      "runson-m8i-large",
+      "runson-m8i-flex-large",
+      "runson-m8i-xlarge",
+      "runson-m8i-flex-xlarge",
+      "runson-m8i-2xlarge",
+      "runson-m8i-flex-2xlarge"
+    ]
+  },
+  "runners": [
+    {
+      "id": "tensorlake-x64",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 4,
+      "ramGiB": 16,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-4",
+        "tensorlake-memory-16gb",
+        "tensorlake-disk-80gb"
+      ],
+      "variant": "4 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size."
+    },
+    {
+      "id": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 8,
+      "ramGiB": 32,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-8",
+        "tensorlake-memory-32gb",
+        "tensorlake-disk-80gb"
+      ],
+      "variant": "8 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size."
+    },
+    {
+      "id": "tensorlake-x64-2x8",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 2,
+      "ramGiB": 8,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-2",
+        "tensorlake-memory-8gb",
+        "tensorlake-disk-80gb"
+      ],
+      "variant": "2 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size.",
+      "suiteNotes": {
+        "node": "8 GB is not enough for the opencode typecheck on other providers' runners, even with turbo limited to 4 tasks (exit 137). 16 GB passes."
+      },
+      "suiteSkips": {
+        "docker": "Not run: the PostHog Docker build needs more than 8 GB of memory; it ran out of memory on 8 GB runners."
+      }
+    }
+  ],
+  "results": [
+    {
+      "key": "tensorlake-x64--1",
+      "runnerId": "tensorlake-x64",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 1,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 10,
+      "jobSeconds": 425,
+      "workloadSeconds": 0,
+      "createdAt": "2026-10-10T03:36:56Z",
+      "startedAt": "2026-10-10T03:37:06Z",
+      "phases": [],
+      "runnerName": "tensorlake-4046040c-517d-45df-9ff7-40673ff13221",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38021174299/job/114122311640",
+      "host": {
+        "collectedAt": "2026-10-10T03:37:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 4,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 15.61,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 15.0,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-4046040c-517d-45df-9ff7-40673ff13221",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      },
+      "metrics": {
+        "cpu": {
+          "sysbenchSingleEps": 4013.36,
+          "sysbenchMultiEps": 15795.25,
+          "sevenZipMips": 13467,
+          "passmarkSingle": 1697.3142181735438,
+          "passmarkCpuMark": 7046.397714178441
+        },
+        "groupSeconds": {
+          "cpu": 72.3,
+          "passmark": 141.0,
+          "memory": 21.4,
+          "disk": 141.2,
+          "network": 1.9,
+          "docker": 17.6,
+          "postgres": 9.9
+        },
+        "memory": {
+          "readMiBps": 16004.89,
+          "writeMiBps": 6191.62
+        },
+        "disk": {
+          "directory": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark/.fio",
+          "seqRead": {
+            "MiBps": 9059.6,
+            "iops": 9058,
+            "p99us": 9371.6
+          },
+          "seqWrite": {
+            "MiBps": 4099.5,
+            "iops": 4098,
+            "p99us": 43253.8
+          },
+          "randRead": {
+            "MiBps": 833.4,
+            "iops": 213356,
+            "p99us": 4079.6
+          },
+          "randWrite": {
+            "MiBps": 291.9,
+            "iops": 74721,
+            "p99us": 13697.0
+          },
+          "randReadQd1": {
+            "MiBps": 7.4,
+            "iops": 1882,
+            "p99us": 2605.1
+          },
+          "syncWrite": {
+            "MiBps": 3.4,
+            "iops": 876,
+            "p99us": 2277.4
+          }
+        },
+        "network": {
+          "cdnDownload": {
+            "MiBps": 108.3,
+            "MiB": 133.6,
+            "seconds": 1.23
+          },
+          "githubDownload": {
+            "MiBps": 53.3,
+            "MiB": 34.3,
+            "seconds": 0.64
+          }
+        },
+        "docker": {
+          "image": "node:24-bookworm",
+          "pullSeconds": 16.22,
+          "firstRunSeconds": 1.18
+        },
+        "errors": {
+          "postgres": "command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        }
+      },
+      "annotations": {
+        "warnings": [
+          "postgres failed: command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        ]
+      }
+    },
+    {
+      "key": "tensorlake-x64-8x32--1",
+      "runnerId": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 1,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 427,
+      "workloadSeconds": 0,
+      "createdAt": "2026-10-10T03:36:56Z",
+      "startedAt": "2026-10-10T03:37:07Z",
+      "phases": [],
+      "runnerName": "tensorlake-422cee2b-c5b5-4288-916d-0fc1f814f673",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38021174299/job/114122311641",
+      "host": {
+        "collectedAt": "2026-10-10T03:37:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 8,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 31.34,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 30.61,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-422cee2b-c5b5-4288-916d-0fc1f814f673",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      },
+      "metrics": {
+        "cpu": {
+          "sysbenchSingleEps": 4029.12,
+          "sysbenchMultiEps": 32230.92,
+          "sevenZipMips": 25296,
+          "passmarkSingle": 2043.3081262087812,
+          "passmarkCpuMark": 13404.292876853655
+        },
+        "groupSeconds": {
+          "cpu": 73.9,
+          "passmark": 140.3,
+          "memory": 19.3,
+          "disk": 140.5,
+          "network": 2.0,
+          "docker": 19.3,
+          "postgres": 9.4
+        },
+        "memory": {
+          "readMiBps": 24225.78,
+          "writeMiBps": 5842.23
+        },
+        "disk": {
+          "directory": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark/.fio",
+          "seqRead": {
+            "MiBps": 7684.8,
+            "iops": 7683,
+            "p99us": 10551.3
+          },
+          "seqWrite": {
+            "MiBps": 2700.7,
+            "iops": 2699,
+            "p99us": 68681.7
+          },
+          "randRead": {
+            "MiBps": 653.2,
+            "iops": 167219,
+            "p99us": 4489.2
+          },
+          "randWrite": {
+            "MiBps": 380.4,
+            "iops": 97384,
+            "p99us": 8454.1
+          },
+          "randReadQd1": {
+            "MiBps": 14.3,
+            "iops": 3655,
+            "p99us": 2998.3
+          },
+          "syncWrite": {
+            "MiBps": 2.9,
+            "iops": 749,
+            "p99us": 2834.4
+          }
+        },
+        "network": {
+          "cdnDownload": {
+            "MiBps": 119.6,
+            "MiB": 133.6,
+            "seconds": 1.12
+          },
+          "githubDownload": {
+            "MiBps": 40.5,
+            "MiB": 34.3,
+            "seconds": 0.85
+          }
+        },
+        "docker": {
+          "image": "node:24-bookworm",
+          "pullSeconds": 17.42,
+          "firstRunSeconds": 1.61
+        },
+        "errors": {
+          "postgres": "command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        }
+      },
+      "annotations": {
+        "warnings": [
+          "postgres failed: command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        ]
+      }
+    },
+    {
+      "key": "tensorlake-x64-2x8--1",
+      "runnerId": "tensorlake-x64-2x8",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "iteration": 1,
+      "status": "success",
+      "failedAt": null,
+      "queueSeconds": 11,
+      "jobSeconds": 422,
+      "workloadSeconds": 0,
+      "createdAt": "2026-10-10T03:36:56Z",
+      "startedAt": "2026-10-10T03:37:07Z",
+      "phases": [],
+      "runnerName": "tensorlake-d253a400-c85d-49ca-9ff1-dab8c7a75ee6",
+      "runnerGroup": "Default",
+      "jobUrl": "https://github.com/tensorlakeai/gha-runner-benchmark/actions/runs/38021174299/job/114122311677",
+      "host": {
+        "collectedAt": "2026-10-10T03:37:12+00:00",
+        "arch": "x86_64",
+        "kernel": "7.0.7",
+        "os": "Ubuntu 22.04.5 LTS",
+        "cpu": {
+          "model": "AMD EPYC 9554P 64-Core Processor",
+          "vendor": "AuthenticAMD",
+          "logicalCpus": 2,
+          "threadsPerCore": 1,
+          "maxMHz": null,
+          "virtualization": "kvm",
+          "hypervisor": "KVM"
+        },
+        "memoryGiB": 7.75,
+        "memory": {
+          "swapGiB": 0.0,
+          "availableGiB": 7.2,
+          "swapDevices": [],
+          "overcommit": 0,
+          "swappiness": 60
+        },
+        "manufacturer": null,
+        "product": null,
+        "storage": {
+          "workspace": {
+            "path": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "tmp": {
+            "path": "/tmp",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "root": {
+            "path": "/",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "docker": {
+            "path": "/var/lib/docker",
+            "source": "/dev/vda",
+            "target": "/",
+            "fstype": "ext4",
+            "options": "rw,relatime,discard,noinit_itable",
+            "sizeGiB": 78.6,
+            "freeGiB": 72.3
+          },
+          "dockerDriver": "overlayfs",
+          "devices": [
+            {
+              "name": "vda",
+              "type": "disk",
+              "sizeGiB": 80.0,
+              "model": null,
+              "rotational": true,
+              "transport": null,
+              "fstype": null,
+              "mountpoint": "/"
+            }
+          ]
+        },
+        "ec2": null,
+        "runsOn": null,
+        "network": {
+          "org": "AS396356 Latitude.sh",
+          "city": "Dallas",
+          "region": "Texas",
+          "country": "US"
+        },
+        "runner": {
+          "name": "tensorlake-d253a400-c85d-49ca-9ff1-dab8c7a75ee6",
+          "environment": "self-hosted",
+          "imageOS": null,
+          "imageVersion": null
+        }
+      },
+      "metrics": {
+        "cpu": {
+          "sysbenchSingleEps": 3936.65,
+          "sysbenchMultiEps": 7709.44,
+          "sevenZipMips": 7473,
+          "passmarkSingle": 1826.5041735818277,
+          "passmarkCpuMark": 3379.9498590899802
+        },
+        "groupSeconds": {
+          "cpu": 67.7,
+          "passmark": 141.5,
+          "memory": 23.9,
+          "disk": 142.3,
+          "network": 1.7,
+          "docker": 16.5,
+          "postgres": 9.5
+        },
+        "memory": {
+          "readMiBps": 11552.83,
+          "writeMiBps": 5918.75
+        },
+        "disk": {
+          "directory": "/opt/actions-runner/_work/gha-runner-benchmark/gha-runner-benchmark/.fio",
+          "seqRead": {
+            "MiBps": 12529.4,
+            "iops": 12528,
+            "p99us": 7634.9
+          },
+          "seqWrite": {
+            "MiBps": 3595.0,
+            "iops": 3593,
+            "p99us": 51118.1
+          },
+          "randRead": {
+            "MiBps": 474.1,
+            "iops": 121369,
+            "p99us": 4685.8
+          },
+          "randWrite": {
+            "MiBps": 172.5,
+            "iops": 44160,
+            "p99us": 23199.7
+          },
+          "randReadQd1": {
+            "MiBps": 11.5,
+            "iops": 2939,
+            "p99us": 2965.5
+          },
+          "syncWrite": {
+            "MiBps": 4.0,
+            "iops": 1030,
+            "p99us": 2113.5
+          }
+        },
+        "network": {
+          "cdnDownload": {
+            "MiBps": 118.6,
+            "MiB": 133.6,
+            "seconds": 1.13
+          },
+          "githubDownload": {
+            "MiBps": 67.2,
+            "MiB": 34.3,
+            "seconds": 0.51
+          }
+        },
+        "docker": {
+          "image": "node:24-bookworm",
+          "pullSeconds": 15.76,
+          "firstRunSeconds": 0.55
+        },
+        "errors": {
+          "postgres": "command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        }
+      },
+      "annotations": {
+        "warnings": [
+          "postgres failed: command failed (1): ['pgbench', '-i', '-s', '50', '-h', 'localhost', '-U', 'postgres', 'bench']"
+        ]
+      }
+    }
+  ]
+}
