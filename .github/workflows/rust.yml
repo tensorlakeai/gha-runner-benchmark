@@ -1,10 +1,8 @@
 name: Rust build (spotify-player)
 
 on:
-  # Staggered so suites never share a provider's concurrency (burst runs alone,
-  # mid-week, at a busy hour). Schedules only fire on the default branch.
-  schedule:
-    - cron: "0 2 1-31/3 * *"
+  # No schedule in this fork: a cron run starts every provider's default
+  # runners. Dispatch with runners=<ids> instead (see TENSORLAKE.md).
   workflow_dispatch:
     inputs:
       runners:
@@ -92,6 +90,15 @@ jobs:
           ref: 7dc9d17a7bf5671eb6129fdf9127729f659637fc
           path: work
           persist-credentials: false
+      - name: Ubuntu archive for apt (Tensorlake)
+        # The Tensorlake runner image pins apt to a dated snapshot.ubuntu.com
+        # mirror. Point it back at the Ubuntu archive, like every other
+        # provider, so apt time measures the runner and not that mirror.
+        # Not a "phase:" step, so it stays out of the timed phases.
+        if: matrix.provider == 'Tensorlake'
+        run: |
+          sudo sed -i -E 's@https://snapshot\.ubuntu\.com/ubuntu/[0-9TZ]+/@http://archive.ubuntu.com/ubuntu/@g' /etc/apt/sources.list
+          grep -Ev '^(#|$)' /etc/apt/sources.list
       - name: "phase: system packages"
         run: |
           sudo apt-get update -qq

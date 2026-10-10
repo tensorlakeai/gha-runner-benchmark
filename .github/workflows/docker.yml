@@ -1,10 +1,8 @@
 name: Docker build (PostHog)
 
 on:
-  # Staggered so suites never share a provider's concurrency (burst runs alone,
-  # mid-week, at a busy hour). Schedules only fire on the default branch.
-  schedule:
-    - cron: "0 6 1-31/3 * *"
+  # No schedule in this fork: a cron run starts every provider's default
+  # runners. Dispatch with runners=<ids> instead (see TENSORLAKE.md).
   workflow_dispatch:
     inputs:
       runners:

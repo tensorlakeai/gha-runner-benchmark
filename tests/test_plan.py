@@ -205,7 +205,6 @@ class CpuDaily(unittest.TestCase):
         text = (ROOT / ".github" / "workflows" / "cpu-daily.yml").read_text()
         self.assertIn("suite: cpu-daily\n", text)
         self.assertIn("groups: passmark\n", text)
-        self.assertIn('- cron: "0 8 * * *"', text)
         workload = json.loads((ROOT / "config" / "workloads.json").read_text())["cpu-daily"]
         self.assertEqual(workload["groups"], ["passmark"])
         # No other suite's cron starts at 08:00.

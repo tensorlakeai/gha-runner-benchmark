@@ -3073,6 +3073,90 @@
         "ec2-cpu"
       ],
       "note": "Graviton2, burstable (CPU credits), 2 GB per vCPU. EC2 CPU sweep only."
+    },
+    {
+      "id": "tensorlake-x64",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 4,
+      "ramGiB": 16,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-4",
+        "tensorlake-memory-16gb",
+        "tensorlake-disk-80gb"
+      ],
+      "suites": [
+        "hardware",
+        "rust",
+        "node",
+        "docker",
+        "cache",
+        "burst"
+      ],
+      "cacheActions": [
+        "actions/cache"
+      ],
+      "variant": "4 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size."
+    },
+    {
+      "id": "tensorlake-x64-8x32",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 8,
+      "ramGiB": 32,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-8",
+        "tensorlake-memory-32gb",
+        "tensorlake-disk-80gb"
+      ],
+      "suites": [
+        "hardware",
+        "rust",
+        "node",
+        "docker",
+        "cache",
+        "burst"
+      ],
+      "cacheActions": [
+        "actions/cache"
+      ],
+      "variant": "8 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size."
+    },
+    {
+      "id": "tensorlake-x64-2x8",
+      "provider": "Tensorlake",
+      "arch": "x64",
+      "vcpu": 2,
+      "ramGiB": 8,
+      "label": [
+        "tensorlake",
+        "tensorlake-cpu-2",
+        "tensorlake-memory-8gb",
+        "tensorlake-disk-80gb"
+      ],
+      "suites": [
+        "hardware",
+        "rust",
+        "node",
+        "cache",
+        "burst",
+        "cpu-daily"
+      ],
+      "cacheActions": [
+        "actions/cache"
+      ],
+      "variant": "2 vCPU",
+      "note": "Tensorlake GitHub runner: a fresh sandbox per job (Ubuntu 22.04 image), sized with custom resource labels. Disk is 80 GiB on every size.",
+      "suiteNotes": {
+        "node": "8 GB is not enough for the opencode typecheck on other providers' runners, even with turbo limited to 4 tasks (exit 137). 16 GB passes."
+      },
+      "suiteSkips": {
+        "docker": "Not run: the PostHog Docker build needs more than 8 GB of memory; it ran out of memory on 8 GB runners."
+      }
     }
   ]
 }
