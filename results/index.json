@@ -2,6 +2,22 @@
   "schemaVersion": 1,
   "files": [
     {
+      "path": "rust/2026-10-10-38013798114-1.json",
+      "suite": "rust",
+      "date": "2026-10-10",
+      "runId": 38013798114,
+      "attempt": 1,
+      "jobs": 3,
+      "succeeded": 3,
+      "runners": [
+        "tensorlake-x64",
+        "tensorlake-x64-2x8",
+        "tensorlake-x64-8x32"
+      ],
+      "subset": true,
+      "origin": "workflow_dispatch"
+    },
+    {
       "path": "rust/2026-10-10-38012657130-1.json",
       "suite": "rust",
       "date": "2026-10-10",
