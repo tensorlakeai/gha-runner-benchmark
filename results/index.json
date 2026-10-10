@@ -2,6 +2,22 @@
   "schemaVersion": 1,
   "files": [
     {
+      "path": "node/2026-10-10-38017371968-1.json",
+      "suite": "node",
+      "date": "2026-10-10",
+      "runId": 38017371968,
+      "attempt": 1,
+      "jobs": 3,
+      "succeeded": 2,
+      "runners": [
+        "tensorlake-x64",
+        "tensorlake-x64-2x8",
+        "tensorlake-x64-8x32"
+      ],
+      "subset": true,
+      "origin": "workflow_dispatch"
+    },
+    {
       "path": "node/2026-10-10-38017011323-1.json",
       "suite": "node",
       "date": "2026-10-10",
