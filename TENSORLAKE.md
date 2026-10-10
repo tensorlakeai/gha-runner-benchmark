@@ -21,6 +21,8 @@ directly with the published ones.
   only. It points apt at the Ubuntu archive, because the Tensorlake image pins
   apt to a dated `snapshot.ubuntu.com` mirror. The step is not a `phase:`
   step, so it isn't part of the timed phases.
+- `hardware.yml` also installs `postgresql-14` on Tensorlake rows, outside
+  the timed groups: on Ubuntu 22.04, `postgresql-client` has no `pgbench`.
 - Cron schedules are removed. In this fork a scheduled run would start every
   provider's default runners.
 
