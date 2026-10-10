@@ -112,6 +112,15 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq sysbench fio p7zip-full postgresql-client unzip
+      - name: pgbench on Ubuntu 22.04 (Tensorlake)
+        # The Tensorlake image is Ubuntu 22.04, where postgresql-client has no
+        # pgbench (it ships in postgresql-14). Install it and stop its server
+        # so the benchmark's Postgres container can bind port 5432.
+        if: matrix.provider == 'Tensorlake'
+        run: |
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq postgresql-14
+          sudo systemctl disable --now postgresql || true
+          pgbench --version
       - name: "cpu"
         if: contains(env.BENCH_GROUPS, ',cpu,')
         continue-on-error: true
